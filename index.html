@@ -4,99 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Crystal Collector!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-    <p>id=</p>
-    <div class="crystal">
+<header> 
+    <h1>Crystal Collector</h1>
+</header>
+<p>Click on crystals until the total equals random result.</p>
+<br>
+<h2>Good Luck!</h2>
+    <p id="result">Random Number:</p>
+    <div class="crystals">
+    </div> 
 
-    </div>
+    <p id="previous"></p>
+
+    <p id="win">You Won:</p>
+    <p id="lost">You Lost:</p>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
 
 
 
-}
 </body>
-
-
 </html>
 
-// Pseudo coding 
-
-// A game with 4 crystals and random result
-// Every crystal needs to have a random number between (1-...)
-// When clicking any crystal, it should be adding with the previous result
-// Until it equals the random result
-// If it is greatter than the random result, we decrementt a lost counter
-// If it is equal, then we increment a win counter
-// A new random number should be generated every single time we win or lose
-// to those 4 crystals
-
-
-
-//app.js
-
-var random_result;
-var win; // Undefined
-var lose; // Undefined
-var previous = 0;
-
-
-// Setters (setting values for attribute)
-// Getters(how you get the class value)
-$(".crystal").atttr('class', 'red');
-
-// Start from 0-99
-random_result = Math.floor(Math.random() * 69) + 30;
-$("#result").html('Random Result: ' + random_result);
-
-for(var i = 0; i < 4; i++){
-
-    var random = Math.floor(Math.random() * 11) + 1;
-    console.log(random);
-
-    var crystal = $("<div>")
-        crystal.attr({
-            "class": 'crystal',
-            "data-random": random
-
-        });
-    $(".crystals").append(crystal);
-
-    }
-// To get the cyrstal we clicked on to work
-    $(".crystals").on('click', function() {
-
-        
-        var num = parseInt($(this).attr('data-random');
-        previous += num;
-
-        if(previous > random_result){
-            console.log("You lose!!");
-        }
-       
-
-        else if(previous === random_result){
-           console.log("You win!!") 
-        }
-        
-        console.log(previous)
-        
-        //result += num + 5;
-        //console.log(num '+' result)
-
-    });
-
-// style.css
-
-.crystals{
-    display: flex;
-    justify-content: space-around;
-    align-items: center; 
-}
-
-.crystal{
-    border:1px solid green;
-    height:200px;
-    width: 200px;
-
-}
